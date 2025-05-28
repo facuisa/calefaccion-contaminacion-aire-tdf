@@ -1,4 +1,5 @@
-##PREDICCIÓN DE DÍAS CON RIESGO DE CONTAMINACIÓN ATMOSFÉRICA POR CALEFACCIÓN DOMICILIARIA
+##PREDICCIÓN DE DÍAS CON RIESGO DE CONTAMINACIÓN ATMOSFÉRICA POR CALEFACCIÓN DOMICILIARIA##
+
 #**Objetivo:**
 Este proyecto tiene como objetivo desarrollar un modelo de clasificación supervisada que permita predecir qué días presentan riesgo elevado de contaminación del aire en zonas urbanas de Tierra del Fuego, en especial Ushuaia, debido al uso intensivo de calefacción domiciliaria (gas o leña). Se utilizarán variables climáticas y de consumo energético para alimentar el modelo.
 
