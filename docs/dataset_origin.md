@@ -23,7 +23,6 @@ Este proyecto utiliza múltiples fuentes de datos de dominio público y gubernam
 - **Fecha de adquisición**: mayo de 2025 desde el portal oficial (https://ipiec.tierradelfuego.gob.ar)
 - **Método de adquisición**: Navegación directa en la sección de energía del IPIEC y descarga de archivos relacionados.
 - **Descripción**: Datos históricos sobre consumo energético por tipo de usuario y categoría en Tierra del Fuego.
-- **Preprocesamiento**: Conversión de los archivos originales en formato `.xlsx` a `.csv` para su posterior análisis.
 
 ---
 
