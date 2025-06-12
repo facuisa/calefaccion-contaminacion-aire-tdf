@@ -17,7 +17,7 @@ Tierra del Fuego es una provincia con un clima riguroso, donde la calefacción e
 Anticipar días con condiciones propicias para la acumulación de contaminantes permitiría tomar decisiones informadas en materia de salud pública y medioambiente. Por ejemplo, implementar alertas tempranas, restringir quemas domiciliarias o promover el uso de sistemas más eficientes durante esos días.
 
 ## **Alcance:**
-Este modelo puede utilizarse para crear alertas predictivas en plataformas gubernamentales o integrarse a sistemas de monitoreo ambiental en zonas frías. Su implementación busca mejorar la calidad de vida sin comprometer el acceso a calefacción.
+Aunque el modelo se entrena con datos de **Coyhaique**, su objetivo es sentar las bases para un sistema predictivo aplicable a Tierra del Fuego. La metodología puede adaptarse a datos locales en el futuro e integrarse a plataformas de monitoreo ambiental o decisiones gubernamentales.
 
 ## **Machine Learning for Predicting Air Pollution Risk Days from Domestic Heating**
 This project aims to develop a supervised classification model to predict high-risk air pollution days in Tierra del Fuego due to domestic heating during cold months. Using variables such as minimum daily temperature, wind speed, atmospheric pressure, and energy consumption, the model learns to identify conditions favorable for pollutant accumulation. It also includes air quality measures such as PM2.5, PM10, and NO₂. Early detection of these days may inform public policies, awareness campaigns, and help protect vulnerable populations.
