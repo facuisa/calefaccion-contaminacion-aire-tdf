@@ -1,10 +1,0 @@
-"contaminantes";"tiempo_norma_calidad_aire";"valor_norma_calidad_aire";"unidad_norma_calidad_aire";"alerta_valor";"alarma_valor";"emergencia_valor"
-"CO";"8h";"10";"ppm";"15";"30";"50"
-"";"1h";"50";"ppm";"100";"120";"150"
-"NO";"1h";"0.45";"ppm";"0.6";"1.2";"0.4"
-"";"24h";"0.15";"ppm";"0.3";"1.2";""
-"SO2";"prom.mens";"0.03";"ppm";"1";"5";"10"
-"O3";"1h";"";"";"0.3";"5";"10"
-"Part. en susp.";"prom.mens";"0.1";"ppm";"0.15";"0.25";"0.4"
-"Part. sedim.";"30 dias";"150";"µg/m3";"no aplic";"no aplic";"no aplic"
-"";"";"1";"mg/cm2";"1";"1";"1"
