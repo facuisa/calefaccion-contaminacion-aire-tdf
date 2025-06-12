@@ -1,49 +1,65 @@
+# Informe sobre el Origen de los Datasets
 
-# Informe sobre el Origen del Dataset
-
-Este proyecto utiliza múltiples fuentes de datos de dominio público y gubernamental para la construcción de un modelo predictivo de riesgo de contaminación del aire en Tierra del Fuego, Argentina. A continuación se detallan las fuentes, fechas de adquisición y procesos de obtención realizados.
-
----
-
-## 1. Calidad del Aire (`atmpm10_2023_nuevo.csv`)
-- **Fuente**: https://datos.gob.ar (datos recopilados por estaciones locales de monitoreo).
-- **Fecha de adquisición**: mayo de 2025.
-- **Método de adquisición**: Navegación directa en el portal correspondiente y descarga del archivo relacionado con el proyecto.
-- **Descripción**: Contiene promedios de concentración de material particulado PM10 registrados durante 2023 por estación.
+Este proyecto utiliza diversas fuentes públicas y oficiales para construir un modelo predictivo de riesgo de contaminación del aire en Tierra del Fuego, Argentina, utilizando datos de Coyhaique, Chile, por su similitud climática. A continuación, se describen las fuentes, métodos de adquisición y características generales de cada dataset.
 
 ---
 
-## 2. Consumo de Gas Natural y Electricidad  
-**Archivos involucrados**:
-- `15_3_05_Gas_natural_red_Consumo.xlsx`  
-- `15_3_06_Gas_natural_red_Usuarios.xlsx`  
-- `15_3_01_Energia_electrica_consumida_por_tipo_usuario.xlsx`
+## 1. Datos de Contaminantes Atmosféricos  
+**Archivos involucrados**:  
+- `pm 10 coyhaique (extended).csv`  
+- `pm 2.5 coyhaique.csv`  
+- `CO coyhaique.csv`  
+- `SO2 coyahique.csv`
 
-- **Fuente**: Instituto Provincial de Análisis e Investigación, Estadísticas y Censos (IPIEC) – Gobierno de Tierra del Fuego.
-- **Fecha de adquisición**: mayo de 2025 desde el portal oficial (https://ipiec.tierradelfuego.gob.ar)
-- **Método de adquisición**: Navegación directa en la sección de energía del IPIEC y descarga de archivos relacionados.
-- **Descripción**: Datos históricos sobre consumo energético por tipo de usuario y categoría en Tierra del Fuego.
-
----
-
-## 3. Datos Meteorológicos Horarios (`datohorario20250527.txt`)
-- **Fuente**: Servicio Meteorológico Nacional (SMN) https://smn.gob.ar/
-- **Método de adquisición**: Navegación directa en el sitio del SMN y descarga del archivo relacionado.
-- **Descripción**: Registros por hora de variables como temperatura, humedad, presión, viento y ubicación.
+- **Fuente**: Sistema Nacional de Información de Calidad del Aire (SINCA) – Chile  
+- **Enlace**: [https://sinca.mma.gob.cl/index.php/estacion/index/id/264](https://sinca.mma.gob.cl/index.php/estacion/index/id/264)  
+- **Fecha de adquisición**: junio de 2025  
+- **Método de adquisición**: descarga directa desde el portal oficial, seleccionando la estación Coyhaique.  
+- **Descripción**: Archivos en formato CSV que contienen registros horarios de concentraciones de PM10, PM2.5, CO y SO2 en microgramos por metro cúbico, incluyendo columnas para datos validados, preliminares y no validados.
 
 ---
 
-## 4. Registro de Temperaturas Diarias (`registro_temperatura365d_smn.txt`)
-- **Fuente**: Servicio Meteorológico Nacional (SMN) https://smn.gob.ar/
-- **Fecha de adquisición**: mayo de 2025.
-- **Método de adquisición**: Navegación directa en el sitio del SMN y descarga del archivo histórico correspondiente.
-- **Descripción**: Temperaturas máximas y mínimas diarias de múltiples estaciones meteorológicas.
+## 2. Datos Meteorológicos  
+**Archivo involucrado**:  
+- `export (extended).csv`
+
+- **Fuente**: Meteostat  
+- **Enlace**: [https://meteostat.net/en/station/85864?t=2024-06-07/2025-06-07](https://meteostat.net/en/station/85864?t=2024-06-07/2025-06-07)  
+- **Fecha de adquisición**: junio de 2025  
+- **Método de adquisición**: exportación directa desde la plataforma Meteostat para la estación Coyhaique.  
+- **Descripción**: Datos meteorológicos diarios que incluyen variables como temperatura media, máxima y mínima, precipitación, viento, presión y horas de sol. Los datos fueron descargados en formato CSV y no se modificaron al momento de la adquisición.
+
+---
+
+## 3. Datos de Calidad del Aire vía API  
+**Archivo involucrado**:  
+- `openaq_location_73_measurments.csv` (no incluido pero consultado como referencia cruzada)
+
+- **Fuente**: OpenAQ  
+- **Enlace**: [https://explore.openaq.org/locations/73](https://explore.openaq.org/locations/73)  
+- **Método de adquisición**: consulta mediante API con autenticación (API Key).  
+- **Descripción**: Este recurso fue utilizado para verificar valores de PM2.5 y PM10 y comparar mediciones con el portal SINCA. No forma parte del dataset final pero fue útil como fuente secundaria.
+
+---
+
+## 4. Tabla de Umbrales de Riesgo  
+**Archivo involucrado**:  
+- `umbrales_pm10.csv`
+
+- **Fuente**: Elaboración propia basada en normativas internacionales de calidad del aire  
+- **Referencia principal**: OMS (Organización Mundial de la Salud) y valores adoptados por el Ministerio del Medio Ambiente de Chile (SINCA)  
+- **Descripción**: Tabla de clasificación de riesgo con tres categorías (Bajo, Medio, Alto), construida para el modelo predictivo. Los rangos utilizados son consistentes con los valores umbral de PM10 considerados por la normativa chilena:  
+  - Bajo: 0–44 µg/m³  
+  - Medio: 45–149 µg/m³  
+  - Alto: 150 µg/m³ o más  
 
 ---
 
 ## Consideraciones Generales
-- Todos los datasets fueron almacenados inicialmente en la carpeta `data/raw/`.
-- No se aplicaron procesos de transformación ni manipulación en el momento de adquisición, salvo conversión de formato en archivos Excel.
-- Los archivos fueron seleccionados manualmente navegando cada portal y descargando únicamente aquellos pertinentes al objetivo del proyecto.
+
+- Todos los archivos fueron almacenados inicialmente en la carpeta `data/raw/`.
+- En los contaminantes `CO` y `SO2`, los valores estaban expresados con coma como separador decimal y debieron ser transformados para su análisis.
+- Los datos meteorológicos incluyen algunas columnas con valores nulos (`snow`, `wpgt`), que fueron considerados en el preprocesamiento.
+- La tabla de umbrales fue generada por el equipo a partir de fuentes verificadas para facilitar la clasificación automática de los niveles de riesgo diario.
 
 ---
