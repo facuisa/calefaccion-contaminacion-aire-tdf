@@ -27,16 +27,6 @@ def procesar_meteorologia(df):
     return df
 
 def clasificar_riesgo(pm10, umbrales_df):
-    """Clasifica el nivel de riesgo en base al valor de PM10 y los umbrales proporcionados."""
-    if pd.isnull(pm10):
-        return 'Desconocido'
-    for _, row in umbrales_df.iterrows():
-        if row['pm10_min'] <= pm10 <= row['pm10_max']:
-            return row['riesgo']
-    return 'Fuera de rango'
-
-def clasificar_riesgo(pm10, umbrales_df):
-    """Clasifica el nivel de riesgo en base al valor de PM10 y los umbrales proporcionados."""
     if pd.isnull(pm10):
         return 'Desconocido'
     for _, row in umbrales_df.iterrows():
@@ -45,24 +35,15 @@ def clasificar_riesgo(pm10, umbrales_df):
     return 'Fuera de rango'
 
 def unir_datasets(df_pm10, df_pm25, df_co, df_so2, df_meteo, df_umbrales):
-    """Une todos los datasets preprocesados y clasifica el riesgo."""
-
     df_pm10 = df_pm10.copy()
     df_pm10['Riesgo'] = df_pm10['PM10'].apply(lambda x: clasificar_riesgo(x, df_umbrales))
-
-    # Filtramos solo las columnas necesarias
     df_pm10 = df_pm10[['PM10', 'Riesgo']]
     df_pm25 = df_pm25[['PM2.5']]
     df_co = df_co[['CO']]
     df_so2 = df_so2[['SO2']]
-
-    # Unión de contaminantes
     df_total = df_pm10.join([df_pm25, df_co, df_so2], how='inner')
-
-    # Unión con datos meteorológicos (por fecha)
     df_total['fecha'] = df_total.index.date
     df_meteo['fecha'] = df_meteo.index.date
     df_total = df_total.merge(df_meteo, on='fecha', how='left')
     df_total = df_total.drop(columns=['fecha'])
-
     return df_total
