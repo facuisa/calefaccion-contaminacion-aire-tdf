@@ -44,7 +44,7 @@ calefaccion-contaminacion-aire-tdf/
 │
 ├── reports/
 │   ├── figures/                                        # Gráficos generados automáticamente
-│   └── Detalle del modelo y Conclusiones.pdf           # Reportes de evaluación del modelo
+│   ├── Detalle del modelo y Conclusiones.pdf           # Reportes de evaluación del modelo
 │   └── EDA.md
 │
 ├── src/                                                # Código fuente del proyecto
