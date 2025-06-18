@@ -27,29 +27,31 @@ This project aims to develop a supervised classification model to predict high-r
 ```text
 calefaccion-contaminacion-aire-tdf/
 ├── data/
-│   ├── raw/                  # Datos originales sin procesar
-│   ├── processed/            # Datos listos para entrenar
-│   └── interim/              # Datos intermedios
+│   ├── raw/                                            # Datos originales sin procesar
+│   ├── processed/                                      # Datos listos para entrenar
+│   └── interim/                                        # Datos intermedios
 │
-├── docs/                     # Documentación del proyecto
+├── docs/                                               # Documentación del proyecto
 │   └── dataset_description.md
-│
-├── models/                   # Modelos entrenados y serializados
-│
-├── notebooks/                # Jupyter notebooks para análisis exploratorio, entrenamiento y pruebas
+│   └── dataset_origin.md
+
+├── models/                                             # Modelos entrenados y serializados
+│  
+├── notebooks/                                          # Jupyter notebooks para análisis exploratorio, entrenamiento y pruebas
 │   └── Modelo de Clasificación de Días de riesgo por contaminacion.ipynb
 │
-├── references/               # Artículos, papers, papers técnicos o benchmarks
+├── references/                                         # Artículos, papers, papers técnicos o benchmarks
 │
 ├── reports/
-│   ├── figures/              # Gráficos generados automáticamente
-│   └── evaluation.md         # Reportes de evaluación del modelo
+│   ├── figures/                                        # Gráficos generados automáticamente
+│   └── Detalle del modelo y Conclusiones.pdf           # Reportes de evaluación del modelo
+│   └── EDA.md
 │
-├── src/                      # Código fuente del proyecto
-│   ├── data/                 # Scripts para carga, limpieza y transformación
-│   ├── features/             # Scripts de ingeniería de características
-│   ├── models/               # Scripts de entrenamiento, evaluación y predicción
-│   └── visualization/        # Funciones de gráficos y visualización
+├── src/                                                # Código fuente del proyecto
+│   ├── data/                                           # Scripts para carga, limpieza y transformación
+│   ├── features/                                       # Scripts de ingeniería de características
+│   ├── models/                                         # Scripts de entrenamiento, evaluación y predicción
+│   └── visualization/                                  # Funciones de gráficos y visualización
 │
 ├── .gitignore
 ├── LICENSE
