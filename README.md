@@ -37,7 +37,7 @@ calefaccion-contaminacion-aire-tdf/
 ├── models/                   # Modelos entrenados y serializados
 │
 ├── notebooks/                # Jupyter notebooks para análisis exploratorio, entrenamiento y pruebas
-│   └── 01_exploracion.ipynb
+│   └── Modelo de Clasificación de Días de riesgo por contaminacion.ipynb
 │
 ├── references/               # Artículos, papers, papers técnicos o benchmarks
 │
